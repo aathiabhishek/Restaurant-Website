@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #order-details {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+    <title>Order Confirmation</title>
+</head>
+<body>
+    <header>
+        <h1>Order Confirmation</h1>
+    </header>
+    
+    <section id="order-details">
+        <h2>Your order has been placed!</h2>
+        <p><strong>Order Confirmation Number:</strong> <%= order._id %></p>
+
+        <h3>Customer Details:</h3>
+        <p><strong>Customer Name:</strong> <%= order.customerName %></p>
+        <p><strong>Delivery Address:</strong> <%= order.delivery_address %></p>
+
+        <h3>Order Details:</h3>
+        <p><strong>Item Id:</strong>  <%= order.menuItem._id %> 
+        <p><strong>Price:</strong>  <%= order.menuItem.price %>
+        <p><strong>Quantity:</strong> <%= order.quantity %></p>
+        <p><strong>Total Order Price:</strong> $<%= order.totalOrderPrice %></p>
+        <p><strong>Stutus</strong> READY FOR DELIVERY<%= order.status %></p>
+
+        <p>Thank you for choosing our restaurant!</p>
+    </section>
+</body>
+</html>

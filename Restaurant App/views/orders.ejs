@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .ord {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+
+        }
+
+        .ord a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        #logo {
+            color: #FF6347; 
+        }
+
+        header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        header h1 {
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .input {
+            margin-top: 10px;
+        }
+
+        #input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #but {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #but:hover {
+            background-color: #0056b3;
+        }
+
+        h2,
+        .list p {
+            margin-bottom: 8px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Hot & Spicy Grilled</title>
+</head>
+<body>
+  
+    <div class="ord">
+        <a href="/"><i id="login"><ion-icon name="person-circle-outline"></ion-icon></i></a>
+        <a class="link" href="/completed-orders"><i id="login"><ion-icon name="checkmark-done-circle"></ion-icon></i></a>
+    </div>
+
+    <header>
+        <h1><i id="logo"><ion-icon name="bonfire"></ion-icon></i> HOT & SPICY GRILLED <i id="logo"><ion-icon name="bonfire"></ion-icon></i></h1>
+    </header>
+
+    <form action="/search" method="get">
+        <h2>SEARCH ORDERS</h2>
+        <div class="input">
+            <input id="input" type="text" name="search" placeholder="Search by Customer Name"><br>
+            <button id="but" type="submit">Search</button>
+        </div>
+    </form>
+
+    <h2>CURRENT ORDER DISPLAY</h2>
+    <ul>
+        <% for (let i = 0; i < orders.length; i++) { %>
+            <% if (orders[i].status === 'IN TRANSIT' || orders[i].status === 'READY FOR DELIVERY') { %>
+                <li class="list">
+                    <p><strong>Customer Name:</strong> <%= orders[i].customerName %></p>
+                    <p><strong>Delivery Address:</strong> <%= orders[i].delivery_address %></p>
+                    <p><strong>Quantity:</strong> <%= orders[i].quantity %></p>
+                    <p><strong>Total Order Price:</strong> $<%= orders[i].totalOrderPrice %></p>
+                    <p><strong>Status:</strong> <%= orders[i].status %></p>
+                </li>
+            <% } %>
+        <% }; %>
+    </ul>
+</body>
+</html>
+

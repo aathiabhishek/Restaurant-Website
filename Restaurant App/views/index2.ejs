@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Display</title>
+</head>
+<body>
+  <h1>Data Display</h1>
+  <ol>
+    
+    <% for (let i = 0; i < order.length; i++) { %>
+        <li> <p><strong>Customer Name: <%= order[i].customerName %> </strong></p>
+        <p><strong>Delivery Address: <%= order[i].delivery_address %></p> </strong>
+        <p><strong>Item ID:</strong> <%= order[i].menuItem._id %></p>
+        <p><strong>Quantity:</strong> <%= order[i].quantity %></p>
+        <p><strong>Total Order Price:</strong> $<%= order[i].totalOrderPrice %></p>
+        <p><strong>Status:</strong> <%= order[i].status %></p>
+        <form action="/select-order/<%= order[i]._id %>" method="post">
+            <button type="submit">Select Order</button>
+        </form>
+    <% } %>
+</li>
+  </ol>
+</body>
+</html>

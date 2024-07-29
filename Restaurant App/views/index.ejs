@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1px;
+            text-align: center;
+        }
+
+        #menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .menu-item-box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .place-order-btn {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+    </style>
+    <title>Hot & Spicy Grilled</title>
+</head>
+<body>
+    <header>
+        <h1>Hot & Spicy Grilled</h1>
+        <p>Open 7 Days a Week</p>
+        <p class="timings">Monday to Sunday: 8:00 AM - 10:00 PM</p>
+    </header>
+    
+    <section id="menu-container">
+        <% for (let i = 0; i < menuItems.length; i++) { %>
+            <div class="menu-item-box">
+                <h3><%= menuItems[i].name %></h3>
+                <p>Price: $<%= menuItems[i].price %></p>
+                <a href="/order" class="place-order-btn">Place Order</a>
+            </div>
+        <% } %>
+    </section>
+
+    <section id="order-status">
+        <form action="/check-order-status" method="post">
+            <label for="orderId">Order ID:</label>
+            <input type="text" id="orderId" name="orderId" required>
+            <button type="submit">Check Status</button>
+        </form>
+    </section>
+
+    <br>
+    <br>
+
+    <section id="bottom-order-btn">
+        <a href="/order" class="place-order-btn">Place Order</a>
+    </section>
+</body>
+</html>

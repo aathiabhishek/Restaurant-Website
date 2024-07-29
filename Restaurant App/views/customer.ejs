@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Not Found</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ord {
+      display: flex;
+      justify-content: flex-end;
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    #logo{
+      color: red;
+    }
+
+    .ord a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color:black;
+      font-size: 32px;
+      padding-top: 25px;
+    }
+
+    .error {
+      text-align: center;
+    }
+
+    .error h1 {
+
+      color: #fc0c03;
+      font-size: 40px;
+    }
+
+    #para {
+      color: #0b0b0b;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    a {
+      color: #068bff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="ord">
+    <a href="/"><i id="login"><ion-icon name="person-circle-outline"></ion-icon></i></a>
+    <a class="link" href="/orders"><i id="login"><ion-icon name="create"></ion-icon></i></a>
+    <a class="link" href="/completed-orders"><i id="login"><ion-icon name="checkmark-done-circle"></ion-icon></i></a>
+  </div>
+  <header>
+    <h1><i id="logo"><ion-icon name="bonfire"></ion-icon></i> HOT & SPICY GRILLED <i id="logo"><ion-icon name="bonfire"></ion-icon></i></h1>
+  </header>
+  <div class="error">
+    <h1>CUSTOMER NOT FOUND</h1>
+    <p id="para">THE CUSTOMER WITH THE NAME "<%= searchTerm %>" WAS NOT FOUND.</p>
+    <a href="/orders">Go Back to Orders</a>
+  </div>
+</body>
+</html>
+

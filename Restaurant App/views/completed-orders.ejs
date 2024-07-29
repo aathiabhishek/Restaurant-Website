@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .ord {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+
+        }
+        .ord a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        #logo {
+            color: #FF6347; 
+        }
+
+        header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        header h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .list {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #007BFF;
+        }
+
+        button.showPhotoButton {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        button.showPhotoButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <title>Hot & Spicy Grilled</title>
+</head>
+<body>
+    <div class="ord">
+        <a href="/"><i id="login"><ion-icon name="person-circle-outline"></ion-icon></i></a>
+        <a class="link" href="/orders"><i id="login"><ion-icon name="create"></ion-icon></i></a>
+    </div>
+
+    <header>
+        <h1><i id="logo"><ion-icon name="bonfire"></ion-icon></i> HOT & SPICY GRILLED <i id="logo"><ion-icon name="bonfire"></ion-icon></i></h1>
+    </header>
+
+    <h2>COMPLETED ORDERS</h2>
+
+    <ul>
+        <% for (let i = 0; i < order.length; i++) { %>
+            <% if (order[i].status === 'DELIVERED') { %>
+                <li class="list">
+                    <p><strong>Customer Name:</strong> <%= order[i].customerName %></p>
+                    <p><strong>Delivery Address:</strong> <%= order[i].delivery_address %></p>
+                    <p><strong>Menu Item:</strong> <%= order[i]._id %></p>
+                    <p><strong>Quantity:</strong> <%= order[i].quantity %></p>
+                    <p><strong>Total Order Price:</strong> $<%= order[i].totalOrderPrice %></p>
+                    <p><strong>Status:</strong> <%= order[i].status %></p>
+                    <button class="showPhotoButton" data-photo="<%= order[i].deliveryPhoto %>">Delivery Photo</button>
+                </li>
+            <% } %>
+        <% }; %>
+    </ul>
+
+    <script>
+      const showPhotoButtons = document.querySelectorAll('.showPhotoButton');
+      showPhotoButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const deliveryPhotoUrl = button.dataset.photo;
+          window.open("https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-1154103372.jpg?w=1390&crop=1p");
+        });
+      });
+    </script>
+</body>
+</html>
